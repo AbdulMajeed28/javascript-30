@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1</title>
+</head>
+<body>
+<script>
+function numbersThenCharacters(arr) {
+    const sortA = [];
+    for (let i = 0; i < arr.length; i++) {
+        const subArr = arr[i];
+        const number = [];
+        const letter = [];
+        for (let j = 0; j < subArr.length; j++) {
+            const item = subArr[j];
+            if (typeof item === 'number') {
+                number.push(item);
+            } else if (typeof item === 'string') {
+                letter.push(item);
+            }
+        }
+        number.sort((a, b) => a - b);
+        letter.sort();
+        sortA.push([...number, ...letter]);
+    }
+    return sortA;
+}
+
+const arr = [
+    [11, 12, 24, 23, "a", "b"],
+    [56, "c", 45],
+    [67, "d"],
+    ["f", "e", 78]
+];
+
+const sortA = numbersThenCharacters(arr);
+
+console.log(sortA.map(arr => JSON.stringify(arr)).join('\n'));
+
+
+
+    </script>
+    
+</body>
+</html>
