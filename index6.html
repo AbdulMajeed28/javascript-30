@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6</title>
+</head>
+<body>
+    <script>
+    function countGroupsOfSeats(seating, n) {
+    const numRows = seating.length;
+    const numCols = seating[0].length;
+    let groupCount = 0;
+
+    for (let i = 0; i < numRows; i++) {
+        let consecutiveEmptySeats = 0;
+
+        for (let j = 0; j < numCols; j++) {
+            if (seating[i][j] === 0) {
+                consecutiveEmptySeats++;
+
+                if (consecutiveEmptySeats === n) {
+                    groupCount++;
+                    break;
+                }
+            } else {
+                consecutiveEmptySeats = 0;
+            }
+        }
+    }
+
+    return groupCount;
+}
+
+
+
+    </script>
+</body>
+</html>
